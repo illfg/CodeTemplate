@@ -1,0 +1,44 @@
+<idea-plugin>
+  <id>yuanqi.plugin.codetemplate</id>
+  <name>CodeTemplate</name>
+  <version>1.1</version>
+  <vendor email="1667248505@qq.com" url="">yuanqi</vendor>
+
+  <description>
+      用于快速添加或保存代码块，使其在云端同步，以减少重复的配置，提高编码幸福感
+      适用于需要经常新建工程的程序员
+
+      Used to quickly add or save blocks of code to synchronize them in the cloud to reduce repetitive configuration and increase coding happiness
+      Suitable for programmers who need to build new projects frequently
+    </description>
+
+  <change-notes>
+      测试版--这是插件的第一版，可能会有一些不完善的地方，如果有遇到任何问题，或有任何建议，请联系我
+
+      Beta - this is the first version of the plugin, there may be some imperfections, if you encounter any problems, or have any Suggestions, please contact me
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="addTemplate" class="action.AddTemplateAction" text="从选中新建模板" description="从选中新建模板">
+      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="ctrl N"/>
+    </action>
+      <action id="InsertTemplateActionID" class="action.InsertTemplateAction" text="从模板库中插入代码" description="从模板库中插入代码">
+          <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+          <keyboard-shortcut keymap="$default" first-keystroke="ctrl I"/>
+      </action>
+  </actions>
+
+</idea-plugin>
