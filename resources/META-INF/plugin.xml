@@ -41,4 +41,13 @@
       </action>
   </actions>
 
+    <application-components>
+        <component>
+            <implementation-class>util.InitUtil</implementation-class>
+        </component>
+        <component>
+            <implementation-class>util.PersistentValue</implementation-class>
+        </component>
+    </application-components>
+
 </idea-plugin>

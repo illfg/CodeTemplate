@@ -10,6 +10,12 @@ public class InitUtil implements ApplicationComponent {
 
         String username = PropertiesComponent.getInstance().getValue("username");
         String password = PropertiesComponent.getInstance().getValue("password");
+        //PersistentValue persistentValue = new PersistentValue();
+        //persistentValue.loadState(new PersistentValue.State("1111111111","asfsdfasdf"));
+        //PersistentValue.State state = persistentValue.getState();
+
+//        System.out.println("=======================");
+//        System.out.println(state.password);
         if (username != null && !"".equals(username)){
             boolean login = WebUtil.login(username, password);
             if (login){

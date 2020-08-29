@@ -64,6 +64,7 @@ public class LoginDialog extends DialogWrapper {
             boolean flag = WebUtil.signup(username, password);
             if (flag){
                 {
+
                     PropertiesComponent.getInstance().setValue("username",username);
                     PropertiesComponent.getInstance().setValue("password",password);
                     GlobalVariable.online = true;
