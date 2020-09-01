@@ -136,7 +136,7 @@ public class LibDialog extends DialogWrapper {
             }
         });
         feedback.addActionListener(e -> {
-            FeedBackDialog feedBackDialog = new FeedBackDialog();
+            FeedBackDialog feedBackDialog = new FeedBackDialog("QQ:1667248505,感谢您使用该插件,有任何建议或问题,请联系我");
             feedBackDialog.show();
         });
     }

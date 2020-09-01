@@ -8,9 +8,11 @@ import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.editor.VisualPosition;
 import com.intellij.psi.PsiFile;
+import dialog.FeedBackDialog;
 import dialog.LibDialog;
 import dialog.LoginDialog;
 import util.GlobalVariable;
+import util.WebUtil;
 
 public class AddTemplateAction extends AnAction {
 
@@ -22,6 +24,10 @@ public class AddTemplateAction extends AnAction {
         SelectionModel selectionModel = editor.getSelectionModel();
         String selectedText = selectionModel.getSelectedText();
 
+        if(!WebUtil.heartBeat()){
+            new FeedBackDialog("非常抱歉，无法连接到服务器，请稍后重试，或与我联系：QQ1667248505").show();
+            return;
+        }
 
         if (!GlobalVariable.online){
             LoginDialog loginDialog = new LoginDialog(selectedText);

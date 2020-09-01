@@ -6,9 +6,11 @@ import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
+import dialog.FeedBackDialog;
 import dialog.LibDialog;
 import dialog.LoginDialog;
 import util.GlobalVariable;
+import util.WebUtil;
 
 public class InsertTemplateAction extends AnAction {
 
@@ -20,6 +22,11 @@ public class InsertTemplateAction extends AnAction {
         int offset = selectionModel.getLeadSelectionOffset();
         Document document = editor.getDocument();
 
+
+        if(!WebUtil.heartBeat()){
+            new FeedBackDialog("非常抱歉，无法连接到服务器，请稍后重试，或与我联系：QQ1667248505").show();
+            return;
+        }
 
         if (!GlobalVariable.online){
             LoginDialog loginDialog = new LoginDialog();

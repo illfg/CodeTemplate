@@ -159,4 +159,23 @@ public class WebUtil {
             return false;
         }
     }
+
+    public static boolean heartBeat(){
+        Map result = null;
+        try{
+            result = template.postForObject(URL+"/heartbeat",
+                    null,Map.class);
+        }catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+        String info = (String) result.get("info");
+        if ("success".equals(info)){
+            return true;
+        }else {
+            String detail = (String) result.get("detail");
+            NotifyUtil.doNotify("网络异常",detail);
+            return false;
+        }
+    }
 }

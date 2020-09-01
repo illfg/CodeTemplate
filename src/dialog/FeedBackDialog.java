@@ -7,10 +7,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class FeedBackDialog extends DialogWrapper {
-    public FeedBackDialog() {
+
+    String msg;
+    public FeedBackDialog(String msg) {
         super(true);
         setTitle("反馈");
         init();
+        this.msg = msg;
     }
 
     @Nullable
@@ -18,7 +21,7 @@ public class FeedBackDialog extends DialogWrapper {
     protected JComponent createCenterPanel() {
         JPanel jPanel = new JPanel(new BorderLayout());
         jPanel.setPreferredSize(new Dimension(200,100));
-        JLabel jLabel = new JLabel("QQ:1667248505,感谢您使用该插件,有任何建议或问题,请联系我");
+        JLabel jLabel = new JLabel(msg);
         jPanel.add(jLabel,BorderLayout.CENTER);
         return jPanel;
     }
